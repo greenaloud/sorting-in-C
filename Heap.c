@@ -1,6 +1,6 @@
 #include "Heap.h"
 
-t_heap	*create_heap(int capacity)
+t_heap	*create_heap(int capacity, int (*comp) (int, int))
 {
 	t_heap	*heap;
 
@@ -18,6 +18,7 @@ t_heap	*create_heap(int capacity)
 	}
 	heap->count = 0;
 	heap->capacity = capacity;
+	heap->comp = comp;
 	return (heap);
 }
 
@@ -46,7 +47,7 @@ void	push(t_heap *pheap, element data)
 			return ;
 	}
 	idx = ++(pheap->count);
-	while (idx > 1 && data < (pheap->arr)[idx / 2])
+	while (idx > 1 && pheap->comp(data, (pheap->arr)[idx / 2]) < 0)
 	{
 		(pheap->arr)[idx] = (pheap->arr)[idx / 2];
 		idx /= 2;
@@ -65,9 +66,9 @@ element pop(t_heap *pheap)
 	child = 2;
 	while (child <= pheap->count)
 	{
-		if ((pheap->arr)[child] > (pheap->arr)[child + 1])
+		if (pheap->comp((pheap->arr)[child], (pheap->arr)[child + 1]) > 0)
 			child++;
-		if (comp <= (pheap->arr)[child])
+		if (pheap->comp(comp, (pheap->arr)[child]) <= 0)
 			break;
 		(pheap->arr)[parent] = (pheap->arr)[child];
 		parent = child;

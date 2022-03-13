@@ -11,9 +11,10 @@ typedef struct s_heap
 	element	*arr;
 	int		count;
 	int		capacity;
+	int 	(*comp) (int, int);
 } t_heap;
 
-t_heap	*create_heap(int capacity);
+t_heap	*create_heap(int capacity, int (*comp) (int, int));
 void	push(t_heap *pheap, element data);
 element pop(t_heap *pheap);
 int		is_empty(t_heap *pheap);

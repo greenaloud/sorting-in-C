@@ -1,4 +1,4 @@
-int	divide(int *arr, int s, int e)
+int	divide(int *arr, int s, int e, int (*compare) (int, int))
 {
 	int	lt, rt, pivot, temp;
 
@@ -7,9 +7,9 @@ int	divide(int *arr, int s, int e)
 	rt = e;
 	while (lt <= rt)
 	{
-		while (arr[lt] <= pivot && lt <= e)
+		while (compare(arr[lt], pivot) <= 0 && lt <= e)
 			lt++;
-		while (arr[rt] >= pivot && rt >= s + 1)
+		while (compare(arr[rt], pivot) >= 0 && rt >= s + 1)
 			rt--;
 		if (lt <= rt)
 		{
@@ -24,13 +24,13 @@ int	divide(int *arr, int s, int e)
 	return (rt);
 }
 
-void	quick_sort(int *arr, int s, int e)
+void	quick_sort(int *arr, int s, int e, int (*compare) (int, int))
 {
 	int	pivot;
 
 	if (s >= e)
 		return;
-	pivot = divide(arr, s, e);
-	quick_sort(arr, s, pivot - 1);
-	quick_sort(arr, pivot + 1, e);
+	pivot = divide(arr, s, e, compare);
+	quick_sort(arr, s, pivot - 1, compare);
+	quick_sort(arr, pivot + 1, e, compare);
 }

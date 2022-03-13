@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-static void	merge(int *arr, int s, int m, int e)
+static void	merge(int *arr, int s, int m, int e, int (*compare) (int, int))
 {
 	int	*left, *right;
 	int	l_len, r_len, lt, rt, idx;
@@ -16,7 +16,7 @@ static void	merge(int *arr, int s, int m, int e)
 	idx = lt = rt = 0;
 	while (lt < l_len && rt < r_len)
 	{
-		if (left[lt] <= right[rt])
+		if (compare(left[lt], right[rt]) <= 0)
 			arr[s + idx++] = left[lt++];
 		else
 			arr[s + idx++] = right[rt++];
@@ -31,14 +31,14 @@ static void	merge(int *arr, int s, int m, int e)
 	free(right);
 }
 
-void	merge_sort(int *arr, int s, int e)
+void	merge_sort(int *arr, int s, int e, int (*compare) (int, int))
 {
 	int	mid;
 
 	if (s >= e)
 		return;
 	mid = s + (e - s) / 2;
-	merge_sort(arr, s, mid);
-	merge_sort(arr, mid + 1, e);
-	merge(arr, s, mid, e);
+	merge_sort(arr, s, mid, compare);
+	merge_sort(arr, mid + 1, e, compare);
+	merge(arr, s, mid, e, compare);
 }
