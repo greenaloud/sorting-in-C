@@ -9,7 +9,7 @@ static void	check_sorted(int *arr, int n, int order)
 	{
 		for (int i = 1; i < n; i++) {
 			if (arr[i - 1] > arr[i]) {
-				printf("Sort Failed\n");
+				printf("NOT SORTED IN ASCENDING ORDER\n");
 				return;
 			}
 		}
@@ -18,7 +18,7 @@ static void	check_sorted(int *arr, int n, int order)
 	{
 		for (int i = 1; i < n; i++) {
 			if (arr[i - 1] < arr[i]) {
-				printf("Sort Failed\n");
+				printf("NOT SORTED IN DESCENDING ORDER\n");
 				return;
 			}
 		}
@@ -31,7 +31,7 @@ static void	fill_random_nums(int *arr, int n)
 	srand((unsigned int)time(NULL));
 
 	for (int i = 0; i < n; i++)
-		arr[i] = rand() - 1000000000;
+		arr[i] = rand() % 20000 - 10000;
 }
 
 int asc(int a, int b)
@@ -49,7 +49,7 @@ int	main(void)
 	int	len;
 	int opt;
 	int	loop;
-	int order;
+	int order = 0;
 	int	*arr;
 
 	arr = NULL;
@@ -79,7 +79,7 @@ int	main(void)
 			case 2:
 				printf("============================================\n");
 				for (int i = 0; i < len; i++)
-					printf("[%d]: %3d\n", i, arr[i]);
+					printf("[%d]: % .4d\n", i, arr[i]);
 				printf("============================================\n\n");
 				break;
 			case 3:
