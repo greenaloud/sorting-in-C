@@ -11,6 +11,6 @@ void	heap_sort(int *arr, int n, int (*compare) (int, int));
 void	merge_sort(int *arr, int s, int e, int (*compare) (int, int));
 void	quick_sort(int *arr, int s, int e, int (*compare) (int, int));
 void	shell_sort(int *arr, int n, int (*compare)(int, int));
-void	radix_sort(int *arr, int n);
+void	radix_sort(int *arr, int n, int mode);
 
 #endif

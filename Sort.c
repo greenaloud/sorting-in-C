@@ -31,7 +31,7 @@ static void	fill_random_nums(int *arr, int n)
 	srand((unsigned int)time(NULL));
 
 	for (int i = 0; i < n; i++)
-		arr[i] = rand() % 10000;
+		arr[i] = rand() % 10000 - 5000;
 }
 
 int asc(int a, int b)
@@ -229,13 +229,13 @@ int	main(void)
 				if (opt == 0)
 				{
 					order = ASC;
-					radix_sort(arr, len);
+					radix_sort(arr, len, 0);
 					printf("Radix Sort Completed\n");
 				}
 				else if (opt == 1)
 				{
 					order = DES;
-					radix_sort(arr, len);
+					radix_sort(arr, len, 1);
 					printf("Radix Sort Completed\n");
 				}
 				else
