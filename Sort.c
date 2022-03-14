@@ -31,7 +31,7 @@ static void	fill_random_nums(int *arr, int n)
 	srand((unsigned int)time(NULL));
 
 	for (int i = 0; i < n; i++)
-		arr[i] = rand() % 10000 - 5000;
+		arr[i] = rand() - 1000000000;
 }
 
 int asc(int a, int b)
@@ -61,9 +61,9 @@ int	main(void)
 		switch (opt)
 		{
 			case 0:
-				printf("======================\n");
+				printf("============================================\n");
 				check_sorted(arr, len, order);
-				printf("======================\n\n");
+				printf("============================================\n\n");
 				break;
 			case 1:
 				printf("Input length of array\n");
@@ -72,18 +72,18 @@ int	main(void)
 					free(arr);
 				arr = malloc(sizeof *arr * len);
 				fill_random_nums(arr, len);
-				printf("======================\n");
+				printf("============================================\n");
 				printf("Random Array Created!\n");
-				printf("======================\n\n");
+				printf("============================================\n\n");
 				break;
 			case 2:
-				printf("======================\n");
+				printf("============================================\n");
 				for (int i = 0; i < len; i++)
 					printf("[%d]: %3d\n", i, arr[i]);
-				printf("======================\n\n");
+				printf("============================================\n\n");
 				break;
 			case 3:
-				printf("======================\n");
+				printf("============================================\n");
 				printf("<0> Ascending Order\n<1> Descending Order\n");
 				scanf("%d", &opt);
 				if (opt == 0)
@@ -100,10 +100,10 @@ int	main(void)
 				}
 				else
 					printf("Enter Valid Option\n");
-				printf("======================\n\n");
+				printf("============================================\n\n");
 				break;
 			case 4:
-				printf("======================\n");
+				printf("============================================\n");
 				printf("<0> Ascending Order\n<1> Descending Order\n");
 				scanf("%d", &opt);
 				if (opt == 0)
@@ -120,10 +120,10 @@ int	main(void)
 				}
 				else
 					printf("Enter Valid Option\n");
-				printf("======================\n\n");
+				printf("============================================\n\n");
 				break;
 			case 5:
-				printf("======================\n");
+				printf("============================================\n");
 				printf("<0> Ascending Order\n<1> Descending Order\n");
 				scanf("%d", &opt);
 				if (opt == 0)
@@ -140,10 +140,10 @@ int	main(void)
 				}
 				else
 					printf("Enter Valid Option\n");
-				printf("======================\n\n");
+				printf("============================================\n\n");
 				break;
 			case 6:
-				printf("======================\n");
+				printf("============================================\n");
 				printf("<0> Ascending Order\n<1> Descending Order\n");
 				scanf("%d", &opt);
 				if (opt == 0)
@@ -160,10 +160,10 @@ int	main(void)
 				}
 				else
 					printf("Enter Valid Option\n");
-				printf("======================\n\n");
+				printf("============================================\n\n");
 				break;
 			case 7:
-				printf("======================\n");
+				printf("============================================\n");
 				printf("<0> Ascending Order\n<1> Descending Order\n");
 				scanf("%d", &opt);
 				if (opt == 0)
@@ -180,10 +180,10 @@ int	main(void)
 				}
 				else
 					printf("Enter Valid Option\n");
-				printf("======================\n\n");
+				printf("============================================\n\n");
 				break;
 			case 8:
-				printf("======================\n");
+				printf("============================================\n");
 				printf("<0> Ascending Order\n<1> Descending Order\n");
 				scanf("%d", &opt);
 				if (opt == 0)
@@ -200,10 +200,10 @@ int	main(void)
 				}
 				else
 					printf("Enter Valid Option\n");
-				printf("======================\n\n");
+				printf("============================================\n\n");
 				break;
 			case 9:
-				printf("======================\n");
+				printf("============================================\n");
 				printf("<0> Ascending Order\n<1> Descending Order\n");
 				scanf("%d", &opt);
 				if (opt == 0)
@@ -220,10 +220,10 @@ int	main(void)
 				}
 				else
 					printf("Enter Valid Option\n");
-				printf("======================\n\n");
+				printf("============================================\n\n");
 				break;
 			case 10:
-				printf("======================\n");
+				printf("============================================\n");
 				printf("<0> Ascending Order\n<1> Descending Order\n");
 				scanf("%d", &opt);
 				if (opt == 0)
@@ -240,7 +240,7 @@ int	main(void)
 				}
 				else
 					printf("Enter Valid Option\n");
-				printf("======================\n\n");
+				printf("============================================\n\n");
 				break;
 			case 11:
 				loop = 0;
